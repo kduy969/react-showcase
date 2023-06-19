@@ -1,0 +1,33 @@
+@import "../../../../css/animation.css";
+
+.container {
+    transition: transform 0.25s, opacity 0.25s;
+}
+.container .show {
+    opacity: 1;
+    transform: translateX(-220px);
+}
+
+.container .hide {
+    opacity: 0.5;
+    transform: translateX(-150px);
+}
+.textRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
+    width: 200px;
+}
+
+.text {
+    display: flex;
+    width: 150px;
+}
+
+.trophyIcon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+}

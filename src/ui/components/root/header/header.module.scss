@@ -1,0 +1,18 @@
+.menuText {
+    padding: 0px 10px;
+    font-weight: 800;
+    opacity: 0.6;
+    transform: scale(1);
+    transition: transform 100ms linear;
+    @apply text-gray-800;
+    cursor: pointer;
+}
+
+:global(.dark) .menuText {
+    @apply text-white;
+}
+
+.menuText:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}

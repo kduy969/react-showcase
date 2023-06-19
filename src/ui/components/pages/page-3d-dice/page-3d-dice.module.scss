@@ -1,0 +1,218 @@
+$box-size: 200px;
+$dot-size: 25px;
+$font-size: 50px;
+$border-width: 10px;
+$border-color: white;
+$size-inner: $box-size - $border-width * 2;
+$dot-adjust: $box-size/4 - $dot-size/2;
+
+.scene {
+    perspective: 1000px;
+    display: flex;
+    position: relative;
+    overflow: visible;
+    width: $box-size;
+    height: $box-size;
+    perspective-origin: -100% -100%;
+    margin-top: 80px;
+}
+@keyframes rotate {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+.translateBox {
+    width: $box-size;
+    height: $box-size;
+    position: relative;
+    transform-style: preserve-3d;
+}
+.box {
+    width: $box-size;
+    height: $box-size;
+    position: relative;
+    transform-style: preserve-3d;
+    /*animation: rotate 5s infinite;*/
+}
+/*create element for 6 sides of a box*/
+.side {
+    transform-style: preserve-3d;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-size: $font-size;
+    width: $box-size;
+    height: $box-size;
+    border-radius: 50px;
+    overflow: visible;
+    background: linear-gradient(145deg, #e5e5e5, #f6f6f6);
+    border: $border-width $border-color solid;
+    opacity: 1;
+}
+
+.side::before {
+    position: absolute;
+    content: '';
+    width: $box-size;
+    height: $box-size;
+    background: $border-color;
+    border-radius: 30px;
+    opacity: 1;
+    transform: translateZ(-6px);
+    transform-style: preserve-3d;
+}
+.side::after {
+    position: absolute;
+    content: '';
+    width: $box-size;
+    height: $box-size;
+    background: $border-color;
+    border-radius: 50px;
+    opacity: 1;
+    transform: translateZ(-1px);
+    transform-style: preserve-3d;
+}
+
+.inside {
+    transform-style: preserve-3d;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-size: $font-size;
+    width: $box-size;
+    height: $box-size;
+    border-radius: 0px;
+    overflow: visible;
+    background: $border-color;
+    opacity: 1;
+
+}
+
+.inside.hoz {
+
+}
+
+.inside.ver1 {
+    transform:rotateX(0deg) rotateY(90deg) rotateZ(0deg) translateZ(0px) ;
+}
+.inside.ver2 {
+    transform:rotateX(90deg) rotateY(0deg) rotateZ(0deg) translateZ(0px) ;
+}
+
+.side :nth-child(n) {
+    position: absolute;
+    width: $dot-size;
+    height: $dot-size;
+    border-radius: 50%;
+    background: #4d4d4d;
+    box-shadow: inset calc(#{$dot-size} / -30) calc(#{$dot-size} / -30) calc(#{$dot-size} / 6) black,
+    inset calc(#{$dot-size} / -30) calc(#{$dot-size} / -30) calc(#{$dot-size} / 6) black;
+}
+
+
+
+.up {
+    transform:rotateX(90deg) rotateY(0deg) rotateZ(0deg) translateZ(calc(#{$box-size}/2)) ;
+}
+.down {
+    transform:rotateX(270deg) rotateY(0deg) rotateZ(0deg) translateZ(calc(#{$box-size}/2)) ;
+}
+.left {
+    transform:rotateX(0deg) rotateY(270deg) rotateZ(0deg) translateZ(calc(#{$box-size}/2)) ;
+}
+.right {
+    transform:rotateX(0deg) rotateY(90deg) rotateZ(0deg) translateZ(calc(#{$box-size}/2)) ;
+}
+.front {
+    transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateZ(calc(#{$box-size}/2)) ;
+}
+.back {
+    transform:rotateX(180deg) rotateY(0deg) rotateZ(0deg) translateZ(calc(#{$box-size}/2)) ;
+}
+
+.front :nth-child(1) {
+    transform: translateY($dot-adjust);
+}
+
+.front :nth-child(2) {
+    transform: translateY(calc(#{$dot-adjust} * -1));
+}
+
+.right :nth-child(1) {
+
+}
+
+.right :nth-child(2) {
+    transform: translateX($dot-adjust)  translateY($dot-adjust);
+}
+
+.right :nth-child(3) {
+    transform: translateX(calc(#{$dot-adjust} * -1))  translateY(calc(#{$dot-adjust} * -1));
+}
+
+.left :nth-child(1) {
+    transform: translateX($dot-adjust)  translateY($dot-adjust);
+}
+
+.left :nth-child(2) {
+    transform: translateX(calc(#{$dot-adjust} * -1))  translateY(calc(#{$dot-adjust} * -1));
+}
+
+.left :nth-child(3) {
+    transform: translateX($dot-adjust)  translateY(calc(#{$dot-adjust} * -1));
+}
+
+.left :nth-child(4) {
+    transform: translateX(calc(#{$dot-adjust} * -1))  translateY($dot-adjust);
+}
+
+.back :nth-child(1) {
+    transform: translateX($dot-adjust)  translateY($dot-adjust);
+}
+
+.back :nth-child(2) {
+    transform: translateX(calc(#{$dot-adjust} * -1))  translateY(calc(#{$dot-adjust} * -1));
+}
+
+.back :nth-child(3) {
+    transform: translateX($dot-adjust)  translateY(calc(#{$dot-adjust} * -1));
+}
+
+.back :nth-child(4) {
+    transform: translateX(calc(#{$dot-adjust} * -1))  translateY($dot-adjust);
+}
+
+.back :nth-child(5) {
+
+}
+
+.down :nth-child(1) {
+    transform: translateX(calc(#{$dot-adjust} * -1));
+}
+
+.down :nth-child(2) {
+    transform: translateX($dot-adjust) ;
+}
+
+.down :nth-child(3) {
+    transform: translateX(calc(#{$dot-adjust} * -1))  translateY($dot-adjust);
+}
+
+.down :nth-child(4) {
+    transform: translateX($dot-adjust)  translateY($dot-adjust);
+}
+
+.down :nth-child(5) {
+    transform: translateX(calc(#{$dot-adjust} * -1))  translateY(calc(#{$dot-adjust} * -1));
+}
+
+.down :nth-child(6) {
+    transform: translateX($dot-adjust)  translateY(calc(#{$dot-adjust} * -1));
+}

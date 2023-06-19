@@ -1,0 +1,9 @@
+.container {
+    width: calc(100vw - 12px);
+    height: calc(100vh - 12px);
+    border: 6px solid white;
+    background: magenta;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}

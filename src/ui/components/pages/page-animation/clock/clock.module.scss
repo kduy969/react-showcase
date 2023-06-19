@@ -1,0 +1,224 @@
+$size: 300px;
+@import "src/ui/css/animation.css";
+
+.clockBox {
+  display: flex;
+  width: $size;
+  height: $size;
+  overflow: visible;
+}
+
+
+.clock {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border: 10px solid gray;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: whitesmoke
+}
+
+.clock.neon {
+  border: 6px solid white;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.8), 0 0 7px rgba(255, 255, 255, 0.8),
+  inset 0 0 2px rgba(255, 255, 255, 0.8),inset 0 0 7px rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  background: transparent;
+}
+
+@keyframes rotate-rainbow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.clockRainbowBorder {
+  opacity: 0.7;
+  display: flex;
+  background: conic-gradient(#f00 0%, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  mask-repeat: no-repeat;
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><circle stroke-width='2%' stroke='black' fill='none' cx='50%' cy='50%' r='49%'/></svg>");
+  mask-type: luminance;
+  animation: rotate-rainbow 4s linear infinite, fade-in 1s linear;
+}
+
+.rainBowMask {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: conic-gradient(#f00 0%, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+}
+
+.secContainer {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
+
+.sec {
+  width: 1px;
+  background-color: red;
+  border-radius: 1px;
+  box-shadow: -0.3px -0.3px 1px 1px red;
+  height: 40%;
+  display: flex;
+  transform: translateY(-50%);
+}
+
+.sec.neon {
+  background-color: red;
+  box-shadow: 0 0 2px rgba(255, 0, 0, 1), 0 0 5px rgba(255, 0, 0, 1), 0 0 10px rgba(255, 0, 0, 1), 0 0 15px rgba(255, 0, 0, 1), 0 0 30px rgba(255, 0, 0, 1),
+  0 0 5px rgba(255, 0, 0, 1), 0 0 10px rgba(255, 0, 0, 1), 0 0 15px rgba(255, 0, 0, 1), 0 0 30px rgba(255, 0, 0, 1);
+}
+
+.secContainer .counter {
+  position: absolute;
+  width: 35px;
+  height: 20px;
+  background-color: red;
+  transform: translateY(-100px) translateX(17px);
+  box-shadow: -0.3px -0.3px 1px 1px red;
+  border-radius: 0% 100% 100% 0% / 100% 50% 50% 0%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.secContainer .counter .text {
+  display: flex;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  width: 20px;
+  transform: translateX(-2px);
+}
+
+
+.minuteContainer {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(180deg);
+}
+
+.minute {
+  width: 2px;
+  background-color: black;
+  border-radius: 1px;
+  box-shadow: -0.3px -0.3px 1px 1px black;
+  height: 30%;
+  display: flex;
+  transform: translateY(-50%);
+}
+
+.minute.neon {
+  background-color: white;
+  box-shadow: 0 0 0 1px #fff, 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff;
+}
+
+
+.hourContainer {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.hour {
+  width: 4px;
+  border-radius: 1px;
+  box-shadow: -0.3px -0.3px 1px 1px darkgray;
+  background-color: darkgray;
+  height: 20%;
+  display: flex;
+  transform: translateY(-50%);
+}
+
+.hour.neon {
+  background: white;
+  box-shadow: 0 0 0 2px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 55px #fff, 0 0 75px #fff;
+}
+
+.centerDot {
+  width: 5%;
+  height: 5%;
+  position: absolute;
+  background-color: gray;
+  border-radius: 50%;
+  display: flex;
+  box-shadow: -0.3px -0.3px 2px 2px rgba(0, 0, 0, 0.7);
+}
+
+.centerDot.neon {
+  background-color: white;
+  box-shadow: 0 0 0 2px #fff, 0 0 10px #fff, 0 0 20px #fff;
+}
+
+.idc0 {
+  display: flex;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  height: 12px;
+  width: 4px;
+  border-radius: 4px;
+}
+
+.idc6 {
+  display: flex;
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+  height: 12px;
+  width: 4px;
+  border-radius: 4px;
+}
+
+.idc3 {
+  display: flex;
+  background-color: black;
+  position: absolute;
+  right: 0;
+  height: 4px;
+  width: 12px;
+  border-radius: 4px;
+}
+
+.idc9 {
+  display: flex;
+  background-color: black;
+  position: absolute;
+  left: 0;
+  height: 4px;
+  width: 12px;
+  border-radius: 4px;
+}
+
+[data-neon] {
+  background-color: white;
+  box-shadow: 0 0 0 1px #fff, 0 0 10px #fff;
+}

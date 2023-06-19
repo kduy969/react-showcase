@@ -1,0 +1,133 @@
+$size: 300px;
+.title {
+    font-family: "Varela Round", serif;
+    text-shadow: 0 0 5px white,
+    0 0 15px white,
+    0 0 30px white;
+    .t {
+
+    }
+}
+.clock3DBox {
+    perspective: 500px;
+    z-index: 1;
+}
+.clockBox {
+    position: relative;
+    display: flex;
+    width: $size;
+    height: $size;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+    transform-origin: 50% 50%;
+}
+
+.clock {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border: 10px solid gray;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: whitesmoke;
+    box-shadow: -0.2px -0.2px 3px 3px rgba(0, 0, 0, 1), inset -0.5px -0.5px 5px 3px rgba(0, 0, 0, 0.81);
+}
+
+.secContainer {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    will-change: transform;
+}
+
+.sec {
+    width: 1px;
+    background-color: red;
+    border-radius: 1px;
+    box-shadow: -0.3px -0.3px 1px 1px red;
+    height: 40%;
+    display: flex;
+    transform: translateY(-50%);
+}
+
+.secContainer .counter {
+    position: absolute;
+    width: 35px;
+    height: 20px;
+    background-color: red;
+    transform: translateY(-100px) translateX(17px);
+    box-shadow: -0.3px -0.3px 1px 1px red;
+    border-radius: 0% 100% 100% 0% / 100% 50% 50% 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.secContainer .counter .text {
+    display: flex;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    transform: translateX(-2px);
+}
+
+
+
+.minuteContainer {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(180deg);
+}
+
+.minute {
+    width: 2px;
+    background-color: black;
+    border-radius: 1px;
+    box-shadow: -0.3px -0.3px 1px 1px black;
+    height: 30%;
+    display: flex;
+    transform: translateY(-50%);
+}
+
+.hourContainer {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.hour {
+    width: 4px;
+    border-radius: 1px;
+    box-shadow: -0.3px -0.3px 1px 1px darkgray;
+    background-color: darkgray;
+    height: 20%;
+    display: flex;
+    transform: translateY(-50%);
+
+}
+
+.centerDot {
+    width: 5%;
+    height: 5%;
+    position: absolute;
+    background-color: gray;
+    border-radius: 50%;
+    display: flex;
+    box-shadow: -0.3px -0.3px 2px 2px rgba(0, 0, 0, 0.7);
+}
+
+
+
